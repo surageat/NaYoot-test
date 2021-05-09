@@ -24,7 +24,7 @@ class ChangeController extends Controller
     public function create(Request $request)
     {
         $change = $request->money - $request->price;
-        // dd($change);
+        // dd($change);.
         return view('changemoney.showmoney',compact( 'change'));
 
     }
