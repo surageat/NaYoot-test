@@ -1,0 +1,56 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-7">
+                <a href="javascript:history.back()" class="btn btn-danger btn-lg col-4">ย้อนหลับ</a>
+                <a href="{{url('/home')}}" class="btn btn-success btn-lg col-4">กลับสู่หน้าหลัก</a>
+            </div>
+            <div class="col-5">
+                <a href="{{ url('listnumber') }}" class="btn btn-secondary btn-lg col-4">บัญชีรายชื่อ</a>
+            </div>
+        </div><br>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">เพิ่มข้อมูลรายชื่อ</div>
+
+                    <div class="card-body">
+                        <form action="{{ action('NumberController@update', $number->id) }}" method="post" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            {{ method_field('PATCH') }}
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                    <label for="inputEmail4">เบอโทรศัพท์ </label>
+                                    <input type="text" class="form-control" name="tel_number"
+                                        placeholder="กรอกเบอร์โทรศัพท์" value="{{ $number->tel_number }}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                    <label for="inputEmail4">ชือ-นามสกุล</label>
+                                    <input type="text" class="form-control" name="name" placeholder="กรอกชือ-นามสกุล"
+                                        value="{{ $number->name }}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputEmail4">ที่อยู่</label>
+                                    <textarea class="form-control" name="address">{{ $number->address }}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">รูปภาพ</label><br>
+                                    <input type="file" id="filename" data-show-preview="true" name="picture">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-warning "> แก้ไขข้อมูล</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
