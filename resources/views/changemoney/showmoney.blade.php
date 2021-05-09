@@ -15,12 +15,6 @@
                     <div class="card-body">
                         <h1>เงินทอน   :{{$change}}</h1>
                         <?php
-                        if ($change >= 1000) {
-                        $changes1 = $change / 1000;
-                        $sum4 = floor($changes1) * 1000;
-                        $change = $change - $sum4;
-                        echo 'แบงค์ 1000 =' . floor($changes1) . 'ใบ<br />';
-                        }
                         if ($change >= 500) {
                         $changes2 = $change / 500;
                         $sum4 = floor($changes2) * 500;
